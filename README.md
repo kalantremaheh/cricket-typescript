@@ -1,4 +1,4 @@
 # cricket-typescript
 npm install
 
-npm run
+npm start
