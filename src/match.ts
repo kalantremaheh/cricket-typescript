@@ -24,7 +24,8 @@ export class Match {
         if (this.tossWinner.name == this.teamA.name) {
             console.log(`First inning starting.`);
             await this.startInning(this.teamA, this.teamB);
-
+            this.teamA.printBattingCard();
+            this.teamB.printBallingCard();
             console.log(`First inning complated.`);
             console.log(`${this.teamB.name} need ${this.teamA.score +1} runs to win in ${this.totalOver}`);
 
@@ -36,11 +37,14 @@ export class Match {
     
             this.isSecondInningStarted = true;
             await this.startInning(this.teamB,this.teamA);
+            this.teamB.printBattingCard();
+            this.teamA.printBallingCard();
             console.log(`Second inning complated.`);
         }else{
             console.log(`First inning starting.`);
             await this.startInning(this.teamB, this.teamA);
-
+            this.teamB.printBattingCard();
+            this.teamA.printBallingCard();
             console.log(`First inning complated.`);
             console.log(`${this.teamA.name} need ${this.teamB.score +1} runs to win in ${this.totalOver}`);
 
@@ -52,6 +56,8 @@ export class Match {
     
             this.isSecondInningStarted = true;
             await this.startInning(this.teamA,this.teamB);
+            this.teamA.printBattingCard();
+            this.teamB.printBallingCard();
             console.log(`Second inning complated.`);
 
         }

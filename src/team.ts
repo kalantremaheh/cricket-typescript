@@ -81,4 +81,39 @@ export class Team {
     getOnStrikeBatsman(): Player{
         return this.battingPlayers.find((player:Player) => player.isOnStrike);
     }
+
+    printBattingCard(){
+        console.log("team batting card");
+        let summary = [];
+        for(let i =0;i<this.players.length;i++){
+            summary.push({
+                Batsman: this.players[i].name,
+                run: this.players[i].battingDetails.run,
+                balls: this.players[i].battingDetails.ballPlayed,
+                4: this.players[i].battingDetails.counter["4"],
+                6: this.players[i].battingDetails.counter["6"],
+            })
+        }
+        console.log(`${this.name} batting card:`);
+        console.table(summary);
+        this.printTeamScore();
+    }
+
+    printTeamScore(){
+        console.log(`${this.name} Score: ${this.score} run with ${this.wickets} wicket lost in ${this.overs.length} overs`);
+    }
+
+    printBallingCard(){
+        let summary =[];
+        for(let i=0;i<this.players.length;i++){
+            if(this.players[i].type === "ball"){
+                summary.push({
+                    Baller: this.players[i].name,
+                    ...this.players[i].ballingDetails,
+                });
+            }
+        }
+        console.log(`${this.name} balling card : `);
+        console.table(summary);
+    }
 }
